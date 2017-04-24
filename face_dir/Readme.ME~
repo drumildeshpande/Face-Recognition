@@ -1,0 +1,4 @@
+The project can be ran using ipython notebooks.
+The ipython scripts might be needed to be converted to python scripts if timeout flag is not set to false.
+In which case:
+ipython nbconvert --execute --to python <notebook>.ipynb

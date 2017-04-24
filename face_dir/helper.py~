@@ -1,0 +1,24 @@
+import numpy as np
+import cv2
+import sys
+import os
+
+FREQ_DIV = 5   #frequency divider for capturing training images
+RESIZE_FACTOR = 4
+NUM_TRAINING = 100
+
+class Helper:
+	def capture_training_images(self):
+        video_capture = cv2.VideoCapture(0)
+        while True:
+            self.count_timer += 1
+            ret, frame = video_capture.read()
+            inImg = np.array(frame)
+            outImg = self.process_image(inImg)
+            cv2.imshow('Video', outImg)
+
+            # When everything is done, release the capture on pressing 'q'
+            if cv2.waitKey(1) & 0xFF == ord('q'):
+                video_capture.release()
+                cv2.destroyAllWindows()
+                return
